@@ -30,8 +30,8 @@ function randomNumber(min, max) {
     return Math.floor(random);
 }
 
-let count = 0;
 function howMuch(letter, word) {
+    let count = 0;
     for (let i = 0; i < word.length; i++) {
         if (letter === word[i]) {
             count++;
