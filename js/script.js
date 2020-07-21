@@ -1,12 +1,25 @@
 function getMaxDigit(number) {
-    number = String(number).split('').sort().reverse();
-    return number;
+    let count = 0;
+    number = String(number).split('');
+    for (let i = 0; i < number.length; i++) {
+        if (count < number[i]) {
+            count = number[i];
+        }
+    }
+    return count;
 }
 
 function powerNumber(number, high) {
     let newNumber = number;
-    for(let i = 1; i < high; i++) {
-        newNumber *= number;
+    if (high < 0) {
+        alert("Введіть додатнє число!");
+        return "Введено невірне число!";
+    } else if (high == 0) {
+        return 1;
+    } else {
+        for(let i = 1; i < high; i++) {
+            newNumber *= number;
+        }
     }
     return newNumber;
 }
@@ -31,6 +44,8 @@ function randomNumber(min, max) {
 }
 
 function howMuch(letter, word) {
+    letter = letter.toLowerCase();
+    word = word.toLowerCase();
     let count = 0;
     for (let i = 0; i < word.length; i++) {
         if (letter === word[i]) {
@@ -68,6 +83,8 @@ function randomPassword(number = 8) {
 }
 
 function deleteLetter(letter, word) {
+    letter = letter.toLowerCase();
+    word = word.toLowerCase();
     for(let i = 0; i < word.length; i++) {
         word = word.replace(letter, '');
     }
@@ -75,7 +92,7 @@ function deleteLetter(letter, word) {
 }
 
 function isPalyndrom(word) {
-    if(String(word) === String(word).split('').reverse().join('')) {
+    if(String(word).toLowerCase() === String(word).toLowerCase().split('').reverse().join('')) {
         return true;
     } else {
         return false;
@@ -93,16 +110,16 @@ function deleteRepeatLetter(word) {
 
 
 
-document.writeln(`<p>Функція №1: найбільша цифра з введеного числа: ${getMaxDigit(5674)[0]}</p>`);
-document.writeln(`<p>Функція №2: число у степені: ${powerNumber(3, 3)}</p>`);
+document.writeln(`<p>Функція №1: найбільша цифра з введеного числа: ${getMaxDigit(467351842576831254)}</p>`);
+document.writeln(`<p>Функція №2: число у степені: ${powerNumber(3, 0)}</p>`);
 document.writeln(`<p>Функція №3: правильно написане ім'я: ${firstLetter('nATaLiA')}</p>`);
 document.writeln(`<p>Функція №4: сума без податку: ${withoutTax(1000)}</p>`);
 document.writeln(`<p>Функція №5: випадкове число: ${randomNumber(3, 9)}</p>`);
-document.writeln(`<p>Функція №6: кількість певної букви у слові: ${howMuch('a', 'barabashka')} </p>`);
+document.writeln(`<p>Функція №6: кількість певної букви у слові: ${howMuch('b', 'baraBashka')} </p>`);
 document.writeln(`<p>Функція №7: конвертація валюти: ${convertCurrensy('200$')}</p>`);
 document.writeln(`<p>Функція №8: рандомний пароль: ${(randomPassword())}</p>`);
 document.writeln(`<p>Функція №9: видалення деякої букви з слова: ${deleteLetter('e', 'lifestyle')}</p>`);
-document.writeln(`<p>Функція №10: чи слово є паліндромом: ${isPalyndrom('мадам')}</p>`);
+document.writeln(`<p>Функція №10: чи слово є паліндромом: ${isPalyndrom('Мадам')}</p>`);
 document.writeln(`<p>Функція №11: видалення букв, які повторюються: ${deleteRepeatLetter('Бісквіт був дуже ніжним')}</p>`);
 
 
