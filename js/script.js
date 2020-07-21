@@ -10,15 +10,20 @@ function getMaxDigit(number) {
 }
 
 function powerNumber(number, high) {
-    let newNumber = number;
-    if (high < 0) {
-        alert("Введіть додатнє число!");
-        return "Введено невірне число!";
-    } else if (high == 0) {
-        return 1;
+    if (!Number.isInteger(number) || !Number.isInteger(high)) {
+        alert('Ви ввели неправильні дані!');
+        return 'Неправильні дані!';
     } else {
-        for(let i = 1; i < high; i++) {
-            newNumber *= number;
+        let newNumber = number;
+        if (high < 0) {
+            alert("Введіть додатнє число!");
+            return "Введено невірне число!";
+        } else if (high == 0) {
+            return 1;
+        } else {
+            for(let i = 1; i < high; i++) {
+                newNumber *= number;
+            }
         }
     }
     return newNumber;
@@ -33,14 +38,24 @@ function firstLetter(name) {
 }
 
 function withoutTax(payment) {
-    const tax = 19.5;
-    payment = payment - (payment * (tax / 100));
-    return payment;
+    if (!Number.isInteger(payment)) {
+        alert('Ви ввели неправильні дані!');
+        return 'Неправильні дані!';
+    }    else {
+        const tax = 19.5;
+        payment = payment - (payment * (tax / 100));
+        return payment;
+    }
 }
 
 function randomNumber(min, max) {
-    let random = min + Math.random() * (max + 1 - min);
-    return Math.floor(random);
+    if (!Number.isInteger(min) || !Number.isInteger(max)) {
+        alert('Ви ввели неправильні дані!');
+        return 'Неправильні дані!';
+    } else {
+        let random = min + Math.random() * (max + 1 - min);
+        return Math.floor(random);
+    }
 }
 
 function howMuch(letter, word) {
@@ -127,13 +142,6 @@ document.writeln(`<p>Функція №8: рандомний пароль: ${(ra
 document.writeln(`<p>Функція №9: видалення деякої букви з слова: ${deleteLetter('e', 'lifestyle')}</p>`);
 document.writeln(`<p>Функція №10: чи слово є паліндромом: ${isPalyndrom('Я несу гусеня')}</p>`);
 document.writeln(`<p>Функція №11: видалення букв, які повторюються: ${deleteRepeatLetter('Бісквіт був дуже ніжним')}</p>`);
-
-
-
-
-
-
-
 
 
 
