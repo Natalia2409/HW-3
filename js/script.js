@@ -92,7 +92,13 @@ function deleteLetter(letter, word) {
 }
 
 function isPalyndrom(word) {
-    if(String(word).toLowerCase() === String(word).toLowerCase().split('').reverse().join('')) {
+    word = String(word).toLowerCase().split('');
+    for(let i = 0; i < word.length; i++) {
+        if (word[i] === " ") {
+            delete word[i];
+        }
+    }
+    if (word === word.reverse()) {
         return true;
     } else {
         return false;
@@ -119,10 +125,8 @@ document.writeln(`<p>Функція №6: кількість певної бук
 document.writeln(`<p>Функція №7: конвертація валюти: ${convertCurrensy('200$')}</p>`);
 document.writeln(`<p>Функція №8: рандомний пароль: ${(randomPassword())}</p>`);
 document.writeln(`<p>Функція №9: видалення деякої букви з слова: ${deleteLetter('e', 'lifestyle')}</p>`);
-document.writeln(`<p>Функція №10: чи слово є паліндромом: ${isPalyndrom('Мадам')}</p>`);
+document.writeln(`<p>Функція №10: чи слово є паліндромом: ${isPalyndrom('Я несу гусеня')}</p>`);
 document.writeln(`<p>Функція №11: видалення букв, які повторюються: ${deleteRepeatLetter('Бісквіт був дуже ніжним')}</p>`);
-
-
 
 
 
