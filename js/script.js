@@ -11,7 +11,6 @@ function getMaxDigit(number) {
 
 function powerNumber(number, high) {
     if (!Number.isInteger(number) || !Number.isInteger(high)) {
-        alert('Ви ввели неправильні дані!');
         return 'Неправильні дані!';
     } else {
         let newNumber = number;
@@ -39,7 +38,6 @@ function firstLetter(name) {
 
 function withoutTax(payment) {
     if (!Number.isInteger(payment)) {
-        alert('Ви ввели неправильні дані!');
         return 'Неправильні дані!';
     }    else {
         const tax = 19.5;
@@ -50,7 +48,6 @@ function withoutTax(payment) {
 
 function randomNumber(min, max) {
     if (!Number.isInteger(min) || !Number.isInteger(max)) {
-        alert('Ви ввели неправильні дані!');
         return 'Неправильні дані!';
     } else {
         let random = min + Math.random() * (max + 1 - min);
@@ -78,7 +75,6 @@ function convertCurrensy(value) {
         value = (parseInt(value) / 25) + "$";
         return value;
     } else {
-        alert('Ви ввели неправильні дані!');
         return 'Неправильні дані!';
     }
 }
@@ -86,7 +82,7 @@ function convertCurrensy(value) {
 function randomPassword(number = 8) {
     let password;
     if (!Number.isInteger(number)) {
-        alert('Ви ввели неправильні дані!');
+        return 'Ви ввели неправильні дані!';
     } else {
         password = (Math.floor(Math.random() * 9)) + 1;
         for (let i = 0; i < (number - 1); i++) {
